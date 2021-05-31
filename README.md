@@ -18,7 +18,7 @@ Pop some more will be an arcade style web game that allows players to shoot down
 * Canvas
 
 ## Timeline: 
-Day 1- Learning canvas and get canvas set up with shapes needed for game 
-Day 2- Physics of game. Get balloons to fall from the starting position, and the collision balloon should double. 
-Day 3- Game over and leveling logic 
-Day 4- Styling game
+* Day 1- Learning canvas and get canvas set up with shapes needed for game 
+* Day 2- Physics of game. Get balloons to fall from the starting position, and the collision balloon should double. 
+* Day 3- Game over and leveling logic 
+* Day 4- Styling game
