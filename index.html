@@ -15,25 +15,82 @@
     <script>
         const canvas= document.getElementById("myCanvas");
         const ctx= canvas.getContext("2d");
+        const iconHeight= 45; 
+        const iconWidth= 15;
+        let iconX= (canvas.width- iconWidth)/2;  
         let x = canvas.width/2;
-        let y = 30; 
-        let dx = 2; 
-        let dy = 2;
+        let y = 80;
+        let b_rad= 68; 
+        let dx = (Math.random() * 2); 
+        let dy = (Math.random() * 2); //using sin or cos to imitate wave path
+
+        let rightPressed = false;
+        let leftPressed = false;
+
+        function drawIcon(){ 
+            ctx.beginPath();
+            ctx.rect(iconX, canvas.height-iconHeight, iconWidth, iconHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
 
         function drawBalloon(){ 
             ctx.beginPath();
-            ctx.arc(x, y, 10, 0, Math.PI*2);
-            ctx.fillStyle = "#0095DD";
+            ctx.arc(x, y, b_rad, 0, Math.PI*2);
+            ctx.fillStyle = "#c47de8";
             ctx.fill();
             ctx.closePath();
         }
 
         function draw(){ 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawIcon(); 
             drawBalloon(); 
+            if(x + dx > canvas.width-b_rad || x + dx < b_rad) {
+                dx = -dx;
+            }
+            if(y + dy > canvas.height-b_rad || y + dy < b_rad) {
+                dy = -dy;
+            }
             x += dx; 
-            y += dy; 
+            y += dy; //simulate wavys
+
+            if(rightPressed) {
+                iconX += 7;
+                if (iconX + iconWidth > canvas.width){
+                    iconX = canvas.width - iconWidth;
+                }
+            }
+            else if(leftPressed) {
+                iconX -= 7;
+                if (iconX < 0){
+                    iconX = 0;
+                }
+            }
         }
+
+        document.addEventListener("keydown", keyDownHandler, false);
+        document.addEventListener("keyup", keyUpHandler, false);
+
+        function keyDownHandler(e) {
+            if(e.key == "Right" || e.key == "ArrowRight") {
+                rightPressed = true;
+            }
+            else if(e.key == "Left" || e.key == "ArrowLeft") {
+                leftPressed = true;
+            }
+        }
+
+        function keyUpHandler(e) {
+            if(e.key == "Right" || e.key == "ArrowRight") {
+                rightPressed = false;
+            }
+            else if(e.key == "Left" || e.key == "ArrowLeft") {
+                leftPressed = false;
+            }
+        }
+        
         setInterval(draw, 10)
     </script>
 </body>
