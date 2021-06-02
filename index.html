@@ -92,6 +92,13 @@
                     spacebarPressed= false; 
                 }; 
             }
+            if (collisionDetection(x, projectileX, y, projectileY, b_rad, 2)){ 
+                b_rad -= 1; 
+            }
+
+            if(b_rad <= 2){ 
+                return alert("Game Over")
+            }
         }
 
         function outOfBounds(y_pos){ 
@@ -101,7 +108,14 @@
         }
  
         //Collsion Detection 
-        function collisionDetection(){ 
+        function collisionDetection(x1, x2, y1, y2, r1, r2){
+            let dsx= x2 - x1; 
+            let dsy= y2- y1; 
+            let distance = Math.sqrt(dsx * dsx + dsy * dsy)
+                if (distance < r1 + r2){ 
+                    console.log("collision!")
+                    return true
+                } 
             
         }
 
