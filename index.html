@@ -89,16 +89,17 @@
             }
             //doesnt reset the projectile
             if(projectileY === 0){ 
-                projectileY= iconY;
+                projectileY == iconY;
             }
         }
 
-        
+ 
         //Collsion Detection 
         function collisionDetection(){ 
 
         }
 
+        // EVENT LISTENERS
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
 
@@ -112,6 +113,7 @@
         }
 
         function keyUpHandler(e) {
+            // console.log(e)
             if(e.key == "Right" || e.key == "ArrowRight") {
                 rightPressed = false;
             }
@@ -123,9 +125,7 @@
         document.addEventListener('keyup', event => {
             if (event.code === 'Space') {
                 spacebarPressed = true;
-                console.log('Space pressed')
-            }else{ 
-                spacebarPressed = false;
+                // console.log('Space pressed')
             }
         })
 
