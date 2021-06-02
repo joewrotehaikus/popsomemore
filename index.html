@@ -61,7 +61,7 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawProjectile(); 
             drawIcon(); 
-            drawBalloon(); 
+            drawBalloon();
             if(x + dx > canvas.width-b_rad || x + dx < b_rad) {
                 dx = -dx;
             }
@@ -86,17 +86,23 @@
 
             if(spacebarPressed){ 
                 projectileY -= mvt;
-            }
-            //doesnt reset the projectile
-            if(projectileY === 0){ 
-                projectileY == iconY;
+                if (outOfBounds(projectileY)){ 
+                    projectileX= iconX; 
+                    projectileY= iconY;
+                    spacebarPressed= false; 
+                }; 
             }
         }
 
+        function outOfBounds(y_pos){ 
+            if (y_pos <= 0 ){ 
+                return true
+            }
+        }
  
         //Collsion Detection 
         function collisionDetection(){ 
-
+            
         }
 
         // EVENT LISTENERS
