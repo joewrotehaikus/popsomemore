@@ -41,7 +41,7 @@
             ctx.stroke();
         }
 
-        function drawIcon(){ 
+        function drawIcon(){ //created
             ctx.beginPath();
             ctx.rect(iconX, iconY, iconWidth, iconHeight);
             ctx.fillStyle = "#0095DD";
@@ -49,7 +49,7 @@
             ctx.closePath();
         }
 
-        function drawBalloon(){ 
+        function drawBalloon(){ // created 
             ctx.beginPath();
             ctx.arc(x, y, b_rad, 0, Math.PI*2);
             ctx.fillStyle = "#c47de8";
@@ -97,7 +97,9 @@
             }
 
             if(b_rad <= 2){ 
-                return alert("Game Over")
+                alert("Game Over"); 
+                document.location.reload();
+                clearInterval(interval);
             }
         }
 
@@ -107,13 +109,13 @@
             }
         }
  
-        //Collsion Detection 
+        //Collision Detection 
         function collisionDetection(x1, x2, y1, y2, r1, r2){
             let dsx= x2 - x1; 
             let dsy= y2- y1; 
             let distance = Math.sqrt(dsx * dsx + dsy * dsy)
                 if (distance < r1 + r2){ 
-                    console.log("collision!")
+                    // console.log("collsion!")
                     return true
                 } 
             
@@ -149,7 +151,7 @@
             }
         })
 
-        setInterval(draw, 10)
+        let interval = setInterval(draw, 10)
     </script>
 </body>
 </html>
