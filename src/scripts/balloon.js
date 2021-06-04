@@ -11,26 +11,28 @@ export default class Balloon{
         this.y = 80; 
     }
 
-    drawBallon(ctx){
-        ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
-        ctx.beginPath(); 
-        ctx.arc(this.x, this.y, CONSTANTS.RADIUS, 0, Math.PI*2); 
+    drawBalloon(ctx){
+        // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, CONSTANTS.RADIUS, 0, Math.PI*2);
+        ctx.fillStyle = "#c47de8";
+        ctx.fill();
+        ctx.closePath(); 
     }
 
     moveBalloon(){ 
-        if(this.x + DX > this.dimensions.width-CONSTANTS.RADIUS || this.x + DX < CONSTANTS.RADIUS) {
-            DX = -DX;
+        if(this.x + CONSTANTS.DX > this.dimensions.width-CONSTANTS.RADIUS || this.x + CONSTANTS.DX < CONSTANTS.RADIUS) {
+            CONSTANTS.DX = -1 * CONSTANTS.DX;
         }
         if(this.y + CONSTANTS.DY > this.dimensions.height-CONSTANTS.RADIUS || this.y + CONSTANTS.DY < CONSTANTS.RADIUS) {
-            DY = -DY;
+            CONSTANTS.DY = -1 * CONSTANTS.DY;
         }
-        this.x += DX;  
-        this.y += DY;
+        this.x += CONSTANTS.DX;  
+        this.y += CONSTANTS.DY;
     }
 
     animate(ctx){
-        console.log("animate balloon") 
         this.moveBalloon(); 
-        this.drawBallon(ctx); 
+        this.drawBalloon(ctx); 
     }
 }

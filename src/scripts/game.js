@@ -4,11 +4,10 @@ import Player from './player';
 export default class PopSomeMore{ 
     constructor(canvas){ 
         this.ctx= canvas.getContext("2d"); 
-        this.dimensions= { width: 480, height: 620 }; 
-    }
+        this.dimensions= { width: canvas.width, height: canvas.height };
+        this.player= new Player(this.dimensions); 
+        this.balloon = new Balloon(this.dimensions); 
 
-    play(){ 
-        this.animate()
     }
 
     restart(){ 
@@ -20,7 +19,13 @@ export default class PopSomeMore{
     }
 
     animate(){ 
-        this.player.animate(this.ctx); 
+        // this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
         this.balloon.animate(this.ctx); 
+        this.player.animate(this.ctx); 
+        
+        // if (this.running) {
+            //This calls this function again, after around 1/60th of a second
+            // requestAnimationFrame(this.animate.bind(this));
+        // }
     }
 }
