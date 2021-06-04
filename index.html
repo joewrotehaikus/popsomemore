@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <script type="text/javascript" src="./dist/main.js" charset="utf-8" defer></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pop Some More</title>
     <style>
-    	* { padding: 0; margin: 0; }
+        * { padding: 0; margin: 0; }
     	canvas { background: #eee; display: block; margin: 0 auto; }
-    </style>
+        </style>
 </head>
 <body>
-    <canvas id="myCanvas" width="480" height="620"></canvas>
-    <script>
+    <canvas id="balloon-game" width="480" height="620"></canvas>
+    <!-- <script>
         const canvas= document.getElementById("myCanvas");
         const ctx= canvas.getContext("2d");
         const iconHeight= 45; 
@@ -41,7 +41,7 @@
             ctx.stroke();
         }
 
-        function drawIcon(){ //created
+        function drawIcon(){ 
             ctx.beginPath();
             ctx.rect(iconX, iconY, iconWidth, iconHeight);
             ctx.fillStyle = "#0095DD";
@@ -49,7 +49,7 @@
             ctx.closePath();
         }
 
-        function drawBalloon(){ // created 
+        function drawBalloon(){ 
             ctx.beginPath();
             ctx.arc(x, y, b_rad, 0, Math.PI*2);
             ctx.fillStyle = "#c47de8";
@@ -152,6 +152,6 @@
         })
 
         let interval = setInterval(draw, 10)
-    </script>
+    </script> -->
 </body>
 </html>

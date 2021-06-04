@@ -12,10 +12,15 @@ export default class PopSomeMore{
     }
 
     restart(){ 
-        this.score =0; 
+        // this.score =0; 
         this.player= new Player(this.dimensions); 
         this.balloon = new Balloon(this.dimensions); 
 
         this.animate(); 
+    }
+
+    animate(){ 
+        this.player.animate(this.ctx); 
+        this.balloon.animate(this.ctx); 
     }
 }

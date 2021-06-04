@@ -6,7 +6,7 @@ module.exports = {
   entry: path.resolve(__dirname, "src", "index.js"), 
   output: {
     path: path.join(__dirname, outputDir),
-    filename: "[name].js",
+    filename: "main.js",
     publicPath: "/dist/",
   },
   resolve: {
@@ -67,7 +67,6 @@ module.exports = {
             },
           },
           "css-loader",
-          "resolve-url-loader",
           {
             loader: "sass-loader", 
             options: {

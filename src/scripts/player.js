@@ -19,4 +19,8 @@ export default class Player{
             CONSTANTS.PLAYER_HEIGHT
         )
     }
+
+    animate(ctx){ 
+        this.drawPlayer(ctx); 
+    }
 }
