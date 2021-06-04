@@ -15,6 +15,7 @@ Pop some more will be an arcade style web game that allows players to shoot down
 ## Technologies used: 
 * Javascript 
 * Canvas
+* Gitgub pages 
 
 ## Timeline: 
 * Day 1- Learning canvas and get canvas set up with shapes needed for game 
