@@ -10,22 +10,21 @@ export default class PopSomeMore{
 
     }
 
-    restart(){ 
-        // this.score =0; 
-        this.player= new Player(this.dimensions); 
-        this.balloon = new Balloon(this.dimensions); 
+    registerEvents(){ 
+        this.keyDownHandler= this.slide.bind(this); // how do I translate event handlers 
+        this.keyUpHandler= this.slide.bind(this); // how do I translate event handlers
+        this.ctx.canvas.addEventListener("keydown", keyDownHandler, false)
+        this.ctx.canvas.addEventListener("keyup", keyUpHandler, false)
+    }
 
-        this.animate(); 
+    slide(){ 
+        this.player.movePlayer()
     }
 
     animate(){ 
-        // this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
+        this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
         this.balloon.animate(this.ctx); 
         this.player.animate(this.ctx); 
-        
-        // if (this.running) {
-            //This calls this function again, after around 1/60th of a second
-            // requestAnimationFrame(this.animate.bind(this));
-        // }
+        requestAnimationFrame(this.animate.bind(this))
     }
 }

@@ -7,7 +7,9 @@ export default class Player{
     constructor(dimensions){ 
         this.dimensions= dimensions
         this.iconX=(this.dimensions.width - CONSTANTS.PLAYER_WIDTH)/2; 
-        this.iconY= this.dimensions.height - CONSTANTS.PLAYER_HEIGHT; 
+        this.iconY= this.dimensions.height - CONSTANTS.PLAYER_HEIGHT;
+        this.rightPressed = false;
+        this.leftPressed = false; 
     }
 
     drawPlayer(ctx){ 
@@ -20,6 +22,10 @@ export default class Player{
         ctx.fillStyle = "#0095DD";
         ctx.fill();
         ctx.closePath();
+    }
+
+    movePlayer(){ 
+        //how do I move the player left and right on the event of a click arrow
     }
 
     animate(ctx){ 
