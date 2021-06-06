@@ -24,10 +24,19 @@ export default class Player{
         ctx.closePath();
     }
 
-    movePlayer(){ 
-        //how do I move the player left and right on the event of a click arrow
+    movePlayer(key){ 
+        if(key === "Right" || key === "ArrowRight"){ 
+            this.rightPressed = true
+        } else if ( key=== "Left" || key === "ArrowLeft"){ 
+            this.leftPressed = true
+        }
     }
 
+    stopPlayer(){ 
+        this.rightPressed = false; 
+        this.leftPressed = false; 
+    }
+    
     animate(ctx){ 
         this.drawPlayer(ctx); 
     }

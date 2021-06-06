@@ -13,12 +13,26 @@ export default class PopSomeMore{
     registerEvents(){ 
         this.keyDownHandler= this.slide.bind(this); // how do I translate event handlers 
         this.keyUpHandler= this.slide.bind(this); // how do I translate event handlers
-        this.ctx.canvas.addEventListener("keydown", keyDownHandler, false)
-        this.ctx.canvas.addEventListener("keyup", keyUpHandler, false)
+        document.addEventListener("keydown", this.keyDownHandler, false)
+        document.addEventListener("keyup", this.keyUpHandler, false)
     }
 
-    slide(){ 
-        this.player.movePlayer()
+    keyDownHandler(e){ 
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            this.player.movePlayer(e.key); 
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            this.player.movePlayer(e.key); 
+        }
+    }
+    
+    keyUpHandler(e){ 
+        if(e.key == "Right" || e.key == "ArrowRight") {
+            this.player.stopPlayer(); 
+        }
+        else if(e.key == "Left" || e.key == "ArrowLeft") {
+            this.player.stopPlayer(); 
+        }
     }
 
     animate(){ 
