@@ -1,5 +1,6 @@
 import Balloon from './balloon';
 import Player from './player'; 
+import Projectile from './projectile'; 
 
 export default class PopSomeMore{ 
     constructor(canvas){ 
@@ -7,22 +8,25 @@ export default class PopSomeMore{
         this.dimensions= { width: canvas.width, height: canvas.height };
         this.player= new Player(this.dimensions); 
         this.balloon = new Balloon(this.dimensions); 
-
+        this.projectile = new Projectile(this.player.iconX, this.player.iconY); 
+        this.registerEvents()
     }
 
     registerEvents(){ 
-        this.keyDownHandler= this.slide.bind(this); // how do I translate event handlers 
-        this.keyUpHandler= this.slide.bind(this); // how do I translate event handlers
-        document.addEventListener("keydown", this.keyDownHandler, false)
-        document.addEventListener("keyup", this.keyUpHandler, false)
+        document.addEventListener("keydown", this.keyDownHandler.bind(this), false)
+        document.addEventListener("keyup", this.keyUpHandler.bind(this), false)
     }
 
-    keyDownHandler(e){ 
-        if(e.key == "Right" || e.key == "ArrowRight") {
+    keyDownHandler(e){
+        console.log(e.key)
+        if(e.key === "Right" || e.key === "ArrowRight") {
             this.player.movePlayer(e.key); 
         }
-        else if(e.key == "Left" || e.key == "ArrowLeft") {
+        else if(e.key === "Left" || e.key === "ArrowLeft") {
             this.player.movePlayer(e.key); 
+        }
+        else if(e.code === "Space"){ 
+            this.projectile.moveProjectile()
         }
     }
     
@@ -39,6 +43,7 @@ export default class PopSomeMore{
         this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
         this.balloon.animate(this.ctx); 
         this.player.animate(this.ctx); 
-        requestAnimationFrame(this.animate.bind(this))
+        this.projectile.animate(this.ctx, this.player.iconX, this.player.iconY); 
+        requestAnimationFrame(this.animate.bind(this)); 
     }
 }
