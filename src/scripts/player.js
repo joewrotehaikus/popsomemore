@@ -14,21 +14,44 @@ export default class Player{
 
     drawPlayer(ctx){ 
         ctx.beginPath() 
-        ctx.fillRect(this.iconX, 
+        ctx.rect(this.iconX, 
             this.iconY, 
             CONSTANTS.PLAYER_WIDTH, 
             CONSTANTS.PLAYER_HEIGHT
         )
         ctx.fillStyle = "#0095DD";
+        ctx.strokeStyle = "green";
         ctx.fill();
+        ctx.stroke();
         ctx.closePath();
+        if (this.rightPressed) {
+            this.iconX += 7
+            if (this.iconX + CONSTANTS.PLAYER_WIDTH > ctx.canvas.width){
+                this.iconX = ctx.canvas.width - CONSTANTS.PLAYER_WIDTH;
+            }
+        }
+        if (this.leftPressed) {
+            this.iconX -= 7
+            if(this.iconX < 0) {
+                this.iconX = 0
+            }
+        }
     }
 
-    movePlayer(){ 
-        //how do I move the player left and right on the event of a click arrow
+    movePlayer(direction){ 
+        if (direction == 'right') {
+            this.rightPressed = true
+        }
+        if (direction == 'left') {
+            this.leftPressed = true
+        }
+    }
+
+    stopPlayer() {
+        this.rightPressed = this.leftPressed = false
     }
 
     animate(ctx){ 
-        this.drawPlayer(ctx); 
+        this.drawPlayer(ctx);
     }
 }

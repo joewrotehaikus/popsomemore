@@ -7,11 +7,16 @@
     <title>Pop Some More</title>
     <style>
         * { padding: 0; margin: 0; }
-    	canvas { background: #eee; display: block; margin: 0 auto; }
+    	canvas { background: #eee; display: inline-block; border: 3px dashed green; margin: 1rem; }
         </style>
 </head>
 <body>
     <canvas id="balloon-game" width="480" height="620"></canvas>
+    <canvas id="game2" width="620" height="480"></canvas>
+    <h3>Controls for left game</h3>
+    <p>Move left: "d". Move right: "f". Fire: "Space"</p>
+    <h3>Controls for right game</h3>
+    <p>Move left: Left arrow. Move right: Right arrow. Fire: Up arrow</p>
     <!-- <script>
         const canvas= document.getElementById("myCanvas");
         const ctx= canvas.getContext("2d");
