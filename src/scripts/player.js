@@ -56,6 +56,5 @@ export default class Player{
 
     animate(ctx){ 
         this.drawPlayer(ctx); 
-
     }
 }
