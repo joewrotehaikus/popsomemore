@@ -7,9 +7,10 @@ export default class PopSomeMore{
         this.ctx= canvas.getContext("2d"); 
         this.dimensions= { width: canvas.width, height: canvas.height };
         this.player= new Player(this.dimensions); 
-        this.balloon = new Balloon(this.dimensions); 
+        this.balloons = new Array(new Balloon(this.dimensions)); // create array of balloon instances 
         this.projectile = new Projectile(this.player.iconX, this.player.iconY); 
         this.registerEvents(); 
+        // this.collision= false
     }
 
     registerEvents(){ 
@@ -18,7 +19,6 @@ export default class PopSomeMore{
     }
 
     keyDownHandler(e){
-        console.log(e.key)
         if(e.key === "Right" || e.key === "ArrowRight") {
             this.player.movePlayer(e.key); 
         }
@@ -44,17 +44,29 @@ export default class PopSomeMore{
         let dsy= y2- y1; 
         let distance = Math.sqrt(dsx * dsx + dsy * dsy)
         if (distance < r1 + r2){ 
-            return true
-        }     
+            this.doubleBalloon() 
+        }
+            
     }
 
+    doubleBalloon(){ 
+        let balloon2= [new Balloon(this.dimensions, 34), new Balloon(this.dimensions, 34)];
+        let next_lvl= this.balloons.concat(balloon2);
+ 
+        for(let i=1; i< next_lvl.length; i++){ 
+            next_lvl[i].animate(this.ctx)
+        }
+       
+        // alert("Game Over"); 
+        // document.location.reload(); 
+    }
 
     animate(){ 
         this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
-        this.balloon.animate(this.ctx); 
+        this.balloons[0].animate(this.ctx); 
         this.player.animate(this.ctx); 
         this.projectile.animate(this.ctx, this.player.iconX, this.player.iconY);
-        this.collisionDetection(this.balloon.x, this.projectile.pos_x, this.balloon.y, this.projectile.pos_y, 68, 2) 
+        this.collisionDetection(this.balloons[0].x, this.projectile.pos_x, this.balloons[0].y, this.projectile.pos_y, this.balloons[0].r, 2); 
         requestAnimationFrame(this.animate.bind(this)); 
     }
 }

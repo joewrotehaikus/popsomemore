@@ -24,7 +24,6 @@ export default class Player{
         ctx.closePath();
 
         if(this.rightPressed) {
-            // console.log("CLICKED")
             this.iconX += 7;
             if (this.iconX + CONSTANTS.PLAYER_WIDTH > this.dimensions.width){
                 this.iconX = this.dimensions.width - CONSTANTS.PLAYER_WIDTH;
@@ -39,13 +38,10 @@ export default class Player{
     }
 
     movePlayer(key){ 
-        // console.log("move")
         if(key === "Right" || key === "ArrowRight"){ 
             this.rightPressed = true
-            // console.log("RIGHT")
         } else if ( key=== "Left" || key === "ArrowLeft"){ 
             this.leftPressed = true
-            // console.log("LEFT")
         }
     }
 
