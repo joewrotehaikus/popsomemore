@@ -44,7 +44,8 @@ export default class PopSomeMore{
         let dsy= y2- y1; 
         let distance = Math.sqrt(dsx * dsx + dsy * dsy)
         if (distance < r1 + r2){ 
-            this.doubleBalloon() 
+            // this.doubleBalloon()
+            return true 
         }
             
     }
