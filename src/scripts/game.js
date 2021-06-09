@@ -2,14 +2,19 @@ import Balloon from './balloon';
 import Player from './player'; 
 import Projectile from './projectile'; 
 
+let Balloons= [];
+let spawnX= 0; 
+let spawnY= 0; 
+
 export default class PopSomeMore{ 
     constructor(canvas){ 
         this.ctx= canvas.getContext("2d"); 
         this.dimensions= { width: canvas.width, height: canvas.height };
         this.player= new Player(this.dimensions); 
-        this.balloons = new Array(new Balloon(this.dimensions)); // create array of balloon instances 
+        this.balloons = Balloons.push(new Balloon(canvas.width/2, 80, 'firstBalloon')); // create array of balloon instances 
         this.projectile = new Projectile(this.player.iconX, this.player.iconY); 
         this.registerEvents(); 
+        this.spawnBalloon= false; 
         // this.collision= false
     }
 
@@ -44,20 +49,24 @@ export default class PopSomeMore{
         let dsy= y2- y1; 
         let distance = Math.sqrt(dsx * dsx + dsy * dsy)
         if (distance < r1 + r2){ 
-            // this.doubleBalloon()
-            console.log("Collision")
-            return true 
+            spawnX= x1; 
+            spawnY= y1; 
+            Balloons.splice(0,1); 
+            this.doubleBalloon()
+            // console.log("Collision")
+            // this.spawnBalloon=true 
         }
             
     }
 
     doubleBalloon(){ 
-        let balloon2= [new Balloon(this.dimensions, 34), new Balloon(this.dimensions, 34)];
-        let next_lvl= this.balloons.concat(balloon2);
+        Balloons.push(new Balloon(spawnX, spawnY, 'mini-balloon-right', 34));
+        Balloons.push(new Balloon(spawnX, spawnY, 'mini-balloon-left', 34))
+        // let next_lvl= this.balloons.concat(balloon2);
  
-        for(let i=1; i< next_lvl.length; i++){ 
-            next_lvl[i].animate(this.ctx)
-        }
+        // for(let i=1; i< next_lvl.length; i++){ 
+        //     next_lvl[i].animate(this.ctx)
+        // }
        
         // alert("Game Over"); 
         // document.location.reload(); 
@@ -65,10 +74,25 @@ export default class PopSomeMore{
 
     animate(){ 
         this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
-        this.balloons[0].animate(this.ctx); 
+        Balloons.forEach(balloon=> { 
+            balloon.animate(this.ctx)
+            if(balloon.type==="firstBalloon"){ 
+                this.collisionDetection(balloon.x, this.projectile.pos_x, balloon.y, this.projectile.pos_y, balloon.r, 2); 
+            }
+        }); 
+
+        Balloons.forEach(balloon=> { 
+            if(balloon.type === "mini-balloon-left"){ 
+                balloon.x -=2; 
+            }
+            if(balloon.type === "mini-balloon-right"){ 
+                balloon.x +=2; 
+            }
+            
+        }); 
+
         this.player.animate(this.ctx); 
         this.projectile.animate(this.ctx, this.player.iconX, this.player.iconY);
-        this.collisionDetection(this.balloons[0].x, this.projectile.pos_x, this.balloons[0].y, this.projectile.pos_y, this.balloons[0].r, 2); 
         requestAnimationFrame(this.animate.bind(this)); 
     }
 }

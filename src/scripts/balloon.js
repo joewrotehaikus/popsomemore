@@ -4,11 +4,14 @@ const CONSTANTS= {
 }
 
 export default class Balloon{ 
-    constructor(dimensions, r = 68){ 
-        this.dimensions= dimensions; 
-        this.x = this.dimensions.width/2; 
-        this.y = 80;
-        this.r= r;  
+    constructor(x, y, type, r = 68){ 
+        // this.dimensions= dimensions; 
+        this.x = x; 
+        this.y = y;
+        this.c_width= 480; 
+        this.c_height= 620; 
+        this.r= r; 
+        this.type= type;  
     }
 
     drawBalloon(ctx){
@@ -21,15 +24,17 @@ export default class Balloon{
     }
 
     moveBalloon(){ 
-        if(this.x + CONSTANTS.DX > this.dimensions.width- this.r || this.x + CONSTANTS.DX < this.r) {
+        if(this.x + CONSTANTS.DX > this.c_width- this.r || this.x + CONSTANTS.DX < this.r) {
             CONSTANTS.DX = -1 * CONSTANTS.DX;
         }
-        if(this.y + CONSTANTS.DY > this.dimensions.height- this.r || this.y + CONSTANTS.DY < this.r) {
+        if(this.y + CONSTANTS.DY > this.c_height- this.r || this.y + CONSTANTS.DY < this.r) {
             CONSTANTS.DY = -1 * CONSTANTS.DY;
         }
         this.x += CONSTANTS.DX;  
         this.y += CONSTANTS.DY;
     }
+
+    
 
     splitBalloon(){ 
 
