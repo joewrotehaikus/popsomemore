@@ -11,7 +11,10 @@ export default class Balloon{
         this.c_width= 480; 
         this.c_height= 620; 
         this.r= r; 
-        this.type= type;  
+        this.type= type;
+        this.speed= 2; 
+        this.moveLeft= false;   
+        this.moveUp= false;  
     }
 
     drawBalloon(ctx){
@@ -36,8 +39,32 @@ export default class Balloon{
 
     
 
-    splitBalloon(){ 
+    wallBounds(){ 
+        if(this.x > this.c_width- this.r || this.x < this.r) {
+            if(this.speed>0){ 
+                this.speed= -2; 
+            }else{ 
+                this.speed= 2; 
+            }
+        }
+        if(this.y > this.c_height- this.r || this.y < this.r) {
+            if(this.moveUp) this.moveUp= false; 
+            if(!this.moveUp) this.moveUp= true; 
+        }  
+    }
 
+    moveMent(){ 
+        if (this.moveLeft){ 
+            this.y-=2
+        }else{ 
+            this.y+=2
+        }
+
+        if(this.moveUp){ 
+            this.x-=2
+        }else{ 
+            this.x+=2  
+        }
     }
 
     animate(ctx){

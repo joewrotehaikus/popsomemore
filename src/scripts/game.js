@@ -82,11 +82,16 @@ export default class PopSomeMore{
         }); 
 
         Balloons.forEach(balloon=> { 
+            balloon.wallBounds()
             if(balloon.type === "mini-balloon-left"){ 
-                balloon.x -=2; 
+                balloon.moveLeft= true; 
+                balloon.moveMent(); 
+                balloon.wallBounds() 
             }
             if(balloon.type === "mini-balloon-right"){ 
-                balloon.x +=2; 
+                balloon.moveLeft= false; 
+                balloon.moveMent(); 
+                balloon.wallBounds() 
             }
             
         }); 
