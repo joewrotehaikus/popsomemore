@@ -45,6 +45,7 @@ export default class PopSomeMore{
         let distance = Math.sqrt(dsx * dsx + dsy * dsy)
         if (distance < r1 + r2){ 
             // this.doubleBalloon()
+            console.log("Collision")
             return true 
         }
             
