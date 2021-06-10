@@ -1,7 +1,7 @@
-const CONSTANTS= { 
-    DX: (Math.random() * 2), 
-    DY: (Math.random() * 2) 
-}
+// const CONSTANTS= { 
+//     DX: getRndInteger(0.5,3.5), 
+//     DY: getRndInteger(0.5,3.5)
+// }
 
 export default class Balloon{ 
     constructor(x, y, type, r = 68){ 
@@ -13,6 +13,8 @@ export default class Balloon{
         this.r= r; 
         this.type= type;
         this.speed= 2; 
+        this.speedX =getRndInteger(0.5,1.2) 
+        this.speedY = getRndInteger(0.5,1.2)
         this.moveLeft= false;   
         this.moveUp= false;  
     }
@@ -27,44 +29,28 @@ export default class Balloon{
     }
 
     moveBalloon(){ 
-        if(this.x + CONSTANTS.DX > this.c_width- this.r || this.x + CONSTANTS.DX < this.r) {
-            CONSTANTS.DX = -1 * CONSTANTS.DX;
+        if(this.x + this.r >= this.c_width || this.x  <=  this.r) {
+            this.speedX = -1 * this.speedX;
         }
-        if(this.y + CONSTANTS.DY > this.c_height- this.r || this.y + CONSTANTS.DY < this.r) {
-            CONSTANTS.DY = -1 * CONSTANTS.DY;
+        if(this.y + this.r >= this.c_height || this.y  <=  this.r) {
+            this.speedY = -1 * this.speedY;
         }
-        this.x += CONSTANTS.DX;  
-        this.y += CONSTANTS.DY;
-    }
-
-    
-
-    wallBounds(){ 
-        if(this.x > this.c_width- this.r || this.x < this.r) {
-            if(this.speed>0){ 
-                this.speed= -2; 
-            }else{ 
-                this.speed= 2; 
+        if(this.type == 'firstBalloon')
+        {
+            this.x += this.speedX;  
+            this.y += this.speedY;
+        }else{
+            if(this.type == 'mini-balloon-left')
+            {
+                this.x -= this.speedX;  
+                this.y += this.speedY;
+            }
+            else{
+                this.x += this.speedX;  
+                this.y += this.speedY;
             }
         }
-        if(this.y > this.c_height- this.r || this.y < this.r) {
-            if(this.moveUp) this.moveUp= false; 
-            if(!this.moveUp) this.moveUp= true; 
-        }  
-    }
-
-    moveMent(){ 
-        if (this.moveLeft){ 
-            this.y-=2
-        }else{ 
-            this.y+=2
-        }
-
-        if(this.moveUp){ 
-            this.x-=2
-        }else{ 
-            this.x+=2  
-        }
+      
     }
 
     animate(ctx){
@@ -72,3 +58,9 @@ export default class Balloon{
         this.drawBalloon(ctx); 
     }
 }
+
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
+  
