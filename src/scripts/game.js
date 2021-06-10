@@ -18,7 +18,8 @@ export default class PopSomeMore{
         this.balloons = Balloons.push(new Balloon(canvas.width/2, 80, 'firstBalloon')); // create array of balloon instances 
         this.projectiles = Projectiles.push(new Projectile(this.player.iconX, this.player.iconY,'firstProjectile')); 
         this.registerEvents(); 
-        this.spawnBalloon= false; 
+        this.spawnBalloon= false;
+        this.score= 0;  
         // this.collision= false
     }
 
@@ -60,7 +61,8 @@ export default class PopSomeMore{
         let dsx= x2 - x1; 
         let dsy= y2- y1; 
         let distance = Math.sqrt(dsx * dsx + dsy * dsy)
-        if (distance < r1 + r2){ 
+        if (distance < r1 + r2){
+            this.score++;  
             spawnX= x1; 
             spawnY= y1; 
            // Balloons.splice(0,1); 
@@ -82,6 +84,12 @@ export default class PopSomeMore{
         Balloons.push(new Balloon(spawnX, spawnY, 'mini-balloon-right', 34));
         Balloons.push(new Balloon(spawnX, spawnY, 'mini-balloon-left', 34))
        
+    }
+
+    drawScore() {
+        this.ctx.font = "16px Arial";
+        this.ctx.fillStyle = "#0095DD";
+        this.ctx.fillText("Score: "+ this.score, 8, 20);
     }
 
     animate(){ 
@@ -122,7 +130,7 @@ export default class PopSomeMore{
                 }
             })
         }
-
+        this.drawScore(); 
         this.player.animate(this.ctx); 
         requestAnimationFrame(this.animate.bind(this)); 
     }

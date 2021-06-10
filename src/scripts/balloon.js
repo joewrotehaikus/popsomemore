@@ -32,8 +32,12 @@ export default class Balloon{
         if(this.x + this.r >= this.c_width || this.x  <=  this.r) {
             this.speedX = -1 * this.speedX;
         }
-        if(this.y + this.r >= this.c_height || this.y  <=  this.r) {
+        if(this.y  <=  this.r) {
             this.speedY = -1 * this.speedY;
+        }else if (this.y + this.r >= this.c_height){ 
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval);
         }
         if(this.type == 'firstBalloon')
         {
