@@ -94,8 +94,7 @@ export default class PopSomeMore{
 
     animate(){ 
         this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
-        if(Projectiles.length!=0&&Balloons.length!=0)
-        {
+        if(Projectiles.length != 0 && Balloons.length != 0){
             Balloons.forEach((balloon,i,arr)=> { 
                 Projectiles.forEach((projectile,j,arr2)=>{
                     balloon.animate(this.ctx)
@@ -114,14 +113,12 @@ export default class PopSomeMore{
             }); 
         }
         
-        if(shoot)
-        {
+        if(shoot){
             
             Projectiles.push(new Projectile(this.player.iconX, this.player.iconY,'missile'));
             shoot =false
         }
-        if(Projectiles.length!=0)
-        {
+        if(Projectiles.length!=0){
             Projectiles.forEach(projectile=>{
                 if(projectile.type == 'missile')
                 {
@@ -130,7 +127,14 @@ export default class PopSomeMore{
                 }
             })
         }
-        this.drawScore(); 
+        this.drawScore();
+        
+        // if(this.score === 3){ 
+        //     alert("GAME OVER");
+        //     document.location.reload();
+        //     clearInterval(interval);
+        // }; 
+
         this.player.animate(this.ctx); 
         requestAnimationFrame(this.animate.bind(this)); 
     }
