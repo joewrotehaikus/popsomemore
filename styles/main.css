@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 body { 
     background: url(/images/gradienta-ix_kUDzCczo-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     height: 80vh;
     width: 80vw;
-    display: flex; 
+    display: flex;
+    font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+.title h1{ 
+    font-family: 'Lobster', cursive;
 }
