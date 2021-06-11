@@ -35,16 +35,17 @@ export default class Projectile{
     moveProjectile(){ 
         this.pos_y -= 5
     }
+
     crashWith(otherobj){
-        var myleft = this.x;
-        var myright = this.x + (this.r);
-        var mytop = this.y;
-        var mybottom = this.y + (this.r);
-        var otherleft = otherobj.x;
-        var otherright = otherobj.x + (otherobj.r);
-        var othertop = otherobj.y;
-        var otherbottom = otherobj.y + (otherobj.r);
-        var crash = true;
+        let myleft = this.x;
+        let myright = this.x + (this.r);
+        let mytop = this.y;
+        let mybottom = this.y + (this.r);
+        let otherleft = otherobj.x;
+        let otherright = otherobj.x + (otherobj.r);
+        let othertop = otherobj.y;
+        let otherbottom = otherobj.y + (otherobj.r);
+        let crash = true;
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
         }
