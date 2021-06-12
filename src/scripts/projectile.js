@@ -36,21 +36,6 @@ export default class Projectile{
         this.pos_y -= 5
     }
 
-    crashWith(otherobj){
-        let myleft = this.x;
-        let myright = this.x + (this.r);
-        let mytop = this.y;
-        let mybottom = this.y + (this.r);
-        let otherleft = otherobj.x;
-        let otherright = otherobj.x + (otherobj.r);
-        let othertop = otherobj.y;
-        let otherbottom = otherobj.y + (otherobj.r);
-        let crash = true;
-        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
-            crash = false;
-        }
-        return crash;
-    }
 
     animate(ctx, x, y){ 
         this.drawProjectile(ctx, x, y)

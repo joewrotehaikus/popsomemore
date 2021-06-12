@@ -4,20 +4,28 @@
 // }
 
 export default class Balloon{ 
-    constructor(x, y, type, r = 68){ 
+    constructor(x, y, type ,speedX,speedY,r = 68){ 
         // this.dimensions= dimensions; 
         this.x = x; 
         this.y = y;
         this.c_width= 480; 
         this.c_height= 620; 
         this.r= r; 
+        // this.width = width;
+        // this.height = height;
+        // this.image = new Image();
+        // this.image.src = src
         this.type= type;
         this.speed= 2; 
-        this.speedX =getRndInteger(0.5,1.2) 
-        this.speedY = getRndInteger(0.5,1.2)
+        this.speedX =speedX 
+        this.speedY = speedY
+        this.maxSpeed = 1.3
         this.moveLeft= false;   
         this.moveUp= false;  
+        this.gameOver=false
+      
     }
+
 
     drawBalloon(ctx){
         // ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height); 
@@ -35,12 +43,11 @@ export default class Balloon{
         if(this.y  <=  this.r) {
             this.speedY = -1 * this.speedY;
         }else if (this.y + this.r >= this.c_height){ 
-            alert("GAME OVER");
-            document.location.reload();
-            clearInterval(interval);
+            this.gameOver = true;
         }
         if(this.type == 'firstBalloon')
         {
+          
             this.x += this.speedX;  
             this.y += this.speedY;
         }else{
@@ -59,12 +66,7 @@ export default class Balloon{
 
     animate(ctx){
         this.moveBalloon(); 
-        this.drawBalloon(ctx); 
-    }
-}
+        this.drawBalloon(ctx);
+    } 
+} 
 
-
-function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min) ) + min;
-  }
-  
