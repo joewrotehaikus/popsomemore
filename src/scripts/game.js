@@ -12,7 +12,7 @@ let levelIncrease=false;
 let gameOver=false;
 
 //selectors;
-const leftBtn = document.getElementById('left');
+const leftBtn = document.querySelector('.left');
 const rightBtn = document.querySelector('.right');
 const spaceBtn = document.querySelector('.space');
 
