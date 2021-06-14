@@ -114,7 +114,6 @@ export default class PopSomeMore{
         //     balloon.speedY = 0.6//getRndInteger(0.5,1.2)
         //     console.log(balloon.speedX,balloon.speedY)
         // })
-       
     }
 
     drawScore() {
@@ -128,9 +127,9 @@ export default class PopSomeMore{
         this.ctx.fillStyle = "#0095DD";
         this.ctx.fillText("Level: "+ this.level, this.dimensions.width-100, 20);
     }
+
     animate(){ 
-        if(gameOver)
-        {
+        if(gameOver){
             alert("GAME OVER");
             document.location.reload();
             clearInterval(interval);
@@ -151,40 +150,30 @@ export default class PopSomeMore{
                         i--;
                         arr2.splice(j,1)
                         j--;
-                    }
-  
+                    } 
                 })
             }); 
         }
-        if(Balloons.length==0)
-        {
 
-            if(!gameOver)
-            {
+        if(Balloons.length==0){
+            if(!gameOver){
                 this.level++;
             }
-            
-            
-            if(this.level==2)
-            {
+            if(this.level==2){
                 this.AddNewBalloons(2)
             }
-            if(this.level==3)
-            {
+            if(this.level==3){
                 this.AddNewBalloons(3)
-            }
-           
-            
+            } 
         }
+
         Balloons.forEach(balloon=>{
-            if(balloon.gameOver==true)
-          {
+            if(balloon.gameOver==true){
             gameOver=true;
           }
         })
         
         if(shoot){
-            
             Projectiles.push(new Projectile(this.player.iconX, this.player.iconY,'missile'));
             shoot =false
         }
@@ -210,8 +199,7 @@ export default class PopSomeMore{
         requestAnimationFrame(this.animate.bind(this)); 
     }
     AddNewBalloons(num){
-        for(let i=0;i<num;i++)
-        {
+        for(let i=0;i<num;i++){
             let balloonSpawnX = getRndInteger(0,this.dimensions.width)
             Balloons.push(new Balloon(balloonSpawnX, this.firstBalloonSpawnY, 'firstBalloon',getRndInteger(0.5,0.9),getRndInteger(0.5,0.9)))
         }
@@ -219,9 +207,6 @@ export default class PopSomeMore{
 }
 
 
-
-
-
-function getRndInteger(min, max) {
+function getRndInteger(min, max){
     return Math.floor(Math.random() * (max - min) ) + min;
-  }
+}
