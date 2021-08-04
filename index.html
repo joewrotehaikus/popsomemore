@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="shortcut icon" type="image/jpg" href="./images/pinkbubble.jpg"/>
-    <script type="text/javascript" src="./dist/main.js" charset="utf-8" defer></script>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="shortcut icon" type="image/jpg" href="./images/pinkbubble.jpg" />
+    <script
+      type="text/javascript"
+      src="./dist/main.js"
+      charset="utf-8"
+      defer
+    ></script>
     <meta property="og:title" content="Pop Some More" />
     <meta property="og:image" content="./images/popsomemore.PNG" />
     <meta
       property="og:description"
       content=" A JavaScript shooting game made with Canvas"
     />
-    <meta
-      property="og:url"
-      content="https://asaha718.github.io/popsomemore/"
-    />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="https://asaha718.github.io/popsomemore/" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pop Some More</title>
     <style>
-        * { padding: 0; margin: 0; }
-    	canvas { background: #eee; display: block; margin: 0 auto; }
-        </style>
-</head>
-<body>
-    <canvas id="balloon-game" width="480" height="620"></canvas>
-    <div class="game-ops">
-        <div class="info-ctn">
-            <div class="title">
-                <h1>POP SOME MORE</h1>
-                <p>By Anug Saha</p>
-            </div>
-            <div class="personal-links">
-                <a  target="_blank" href="https://linkedin.com/in/anug-saha-5bb43613a/"><img src="./images/linkedIn_icon6.png" height="35" width="35"/></a>
-                <a  target="_blank" href="https://angel.co/u/anug-saha-1"><img src="./images/angellist_icon2.png" height="35" width="35" /></a>
-                <a  target="_blank" href="https://github.com/asaha718"><img src="./images/github_icon.png" height="35" width="35" /></a>
-            </div>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      canvas {
+        background: #eee;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas-wrapper">
+      <canvas id="balloon-game" width="480" height="620"></canvas>
+      <!-- <div id="opening" class="opening visible">
+        <div>
+          <h1>POP SOME MORE</h1>
+          <h3>by Anug Saha</h3>
+          <p>Space to Start. Arrow keys to move.</p>
         </div>
-        <div class="controls">
-            <div class="game-instructions">
-                <h3>How To Play</h3>
-                <ul>
-                    <li>Keyboard Left Arrow: Move player left</li>
-                    <li>Keyboard Right Arrow: Move player right</li>
-                    <li>Keyboard Space: Shoot projectile</li>
-                </ul>
-            </div>
-            <div class="controls-ctn">
-                <div ><button class="left">LEFT</button></div>
-                <div ><button class="space">SHOOT</button></div>
-                <div ><button class="right">RIGHT</button></div>
-              
-            </div>
-        </div>
+      </div> -->
     </div>
-</body>
+    <div class="game-ops">
+      <div class="info-ctn">
+        <div class="title">
+          <h1>POP SOME MORE</h1>
+          <p>By Anug Saha</p>
+        </div>
+        <div class="personal-links">
+          <a target="_blank" href="https://linkedin.com/in/anug-saha-5bb43613a/"
+            ><img src="./images/linkedIn_icon6.png" height="35" width="35"
+          /></a>
+          <a target="_blank" href="https://angel.co/u/anug-saha-1"
+            ><img src="./images/angellist_icon2.png" height="35" width="35"
+          /></a>
+          <a target="_blank" href="https://github.com/asaha718"
+            ><img src="./images/github_icon.png" height="35" width="35"
+          /></a>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="game-instructions">
+          <h3>How To Play</h3>
+          <ul>
+            <li>Keyboard Left Arrow: Move player left</li>
+            <li>Keyboard Right Arrow: Move player right</li>
+            <li>Keyboard Space: Shoot projectile</li>
+          </ul>
+        </div>
+        <div class="controls-ctn">
+          <div><button class="left">LEFT</button></div>
+          <div><button class="space">SHOOT</button></div>
+          <div><button class="right">RIGHT</button></div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

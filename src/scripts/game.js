@@ -55,13 +55,7 @@ export default class PopSomeMore{
             this.player.movePlayer(e.key); 
             leftBtn.style.backgroundColor = '#bea0da';
         }
-        else if(e.code === "Space"){ 
-           // this.projectile.moveProjectile()
-          // Projectiles.push(new Projectile(this.player.iconX, this.player.iconY));
-        //   Projectiles.forEach(projectile=>{
-        //     projectile.moveProjectile()
-        //     projectile.animate(this.ctx,this.player.x,this.player.y)
-        // })
+        else if(e.code === "Space"){
            shoot = true;
            spaceBtn.style.backgroundColor = '#bea0da';
         }

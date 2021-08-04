@@ -4,10 +4,36 @@ body {
     background: url(../images/gradienta-ix_kUDzCczo-unsplash.jpg); 
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
-    height: 80vh;
-    width: 80vw;
     display: flex;
+    justify-content: space-evenly;
     font-family: 'Open Sans Condensed', sans-serif; 
+}
+
+.canvas-wrapper{ 
+    position: relative;
+}
+
+.opening{
+    margin: 0 auto;
+    position: absolute; 
+    font-family: 'MedievalSharp', cursive;
+    align-self: center;
+    text-align: center;
+    z-index: 1; 
+    color: white;
+    display: none;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    font-size: 25px; 
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    height: 100%;
+    width: 100%; 
+    z-index: 0;
+}
+
+.visible{
+    display: block;
 }
 
 img{ 
