@@ -8,9 +8,7 @@ let spawnX = 0;
 let spawnY = 0;
 let spawnMini = false;
 let shoot = false;
-let levelIncrease = false;
 let gameOver = false;
-let startScreen = true;
 
 //selectors;
 const leftBtn = document.querySelector(".left");
@@ -40,9 +38,6 @@ export default class PopSomeMore {
     this.spawnBalloon = false;
     this.score = 0;
     this.level = 1;
-    // this.startScreen = true;
-
-    // this.collision= false
   }
 
   registerEvents() {
@@ -98,7 +93,6 @@ export default class PopSomeMore {
         spawnMini = false;
       }
       return true;
-
     } else {
       return false;
     }
