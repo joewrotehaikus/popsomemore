@@ -38,6 +38,8 @@ export default class PopSomeMore {
     this.spawnBalloon = false;
     this.score = 0;
     this.level = 1;
+    this.highScore= localStorage.getItem('highScore') || 0; 
+    this.checkHighScore= this.checkHighScore.bind(this); 
   }
 
   registerEvents() {
@@ -127,6 +129,16 @@ export default class PopSomeMore {
     this.ctx.fillText("Score: " + this.score, 8, 20);
   }
 
+  drawHighScore(){ 
+    this.ctx.font = "16px Arial";
+    this.ctx.fillStyle = "#0095DD";
+    this.ctx.fillText(
+      "High Score: " + this.highScore,
+      8,
+      this.dimensions.height - 20
+    );
+  }
+
   drawEndMsg() {
     this.ctx.font = "25px Arial";
     this.ctx.fillStyle = "#0095DD";
@@ -146,6 +158,13 @@ export default class PopSomeMore {
     this.ctx.font = "16px Arial";
     this.ctx.fillStyle = "#0095DD";
     this.ctx.fillText("Level: " + this.level, this.dimensions.width - 100, 20);
+  }
+
+  checkHighScore(){ 
+    if (this.score > localStorage.getItem("highScore")){ 
+      localStorage.setItem("highScore", this.score);
+      this.highScore= this.score; 
+    }
   }
 
   reset() {
@@ -174,9 +193,11 @@ export default class PopSomeMore {
   animate() {
     if (gameOver) {
       this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+      this.checkHighScore(); 
       this.drawEndMsg();
       this.drawScore();
       this.drawLevel();
+      this.drawHighScore(); 
       return;
     }
 
@@ -249,10 +270,12 @@ export default class PopSomeMore {
 
     this.drawScore();
     this.drawLevel();
+    this.drawHighScore(); 
 
     this.player.animate(this.ctx);
     requestAnimationFrame(this.animate.bind(this));
   }
+
   AddNewBalloons(num) {
     for (let i = 0; i < num; i++) {
       let balloonSpawnX = getRndInteger(0, this.dimensions.width);
