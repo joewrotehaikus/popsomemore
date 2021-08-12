@@ -1,88 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-body { 
-    background: url(../images/gradienta-ix_kUDzCczo-unsplash.jpg); 
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-    display: flex;
-    justify-content: space-evenly;
-    font-family: 'Open Sans Condensed', sans-serif; 
-}
-
-.canvas-wrapper{ 
-    position: relative;
+body {
+  background: url(../images/gradienta-ix_kUDzCczo-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Open Sans Condensed", sans-serif;
 }
 
-.opening{
-    margin: 0 auto;
-    position: absolute; 
-    font-family: 'MedievalSharp', cursive;
-    align-self: center;
-    text-align: center;
-    z-index: 1; 
-    color: white;
-    display: none;
-    letter-spacing: 1px;
-    line-height: 1.5;
-    font-size: 25px; 
-    background-color: rgba(0, 0, 0, .5);
-    top: 0;
-    height: 100%;
-    width: 100%; 
-    z-index: 0;
+.canvas-wrapper {
+  position: relative;
 }
 
-.visible{
-    display: block;
+.opening {
+  margin: 0 auto;
+  position: absolute;
+  font-family: "MedievalSharp", cursive;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }
 
-img{ 
-    padding: 2px; 
+.visible {
+  display: block;
 }
 
-img:hover{ 
-    transform: scale(1.1);
-}
-.info-ctn{ 
-    background-color: rgba(255,255,255,0.5);
-    margin: 5px 10px 20px 10px;
-    padding: 8px;
+.modal-head h1 {
+  color: aqua;
+  font-family: "Lobster", cursive;
+  font-size: 24px;
+  margin-top: 120px;
 }
 
-.title h1{ 
-    font-family: 'Lobster', cursive;
-    font-size: 48px;
-    color: #b010a4;
+.modal-head h4 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
 }
 
-.personal-links{ 
-    display: flex;
-    justify-content: center;
+.modal-tail {
+  margin-top: 45px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 16px;
 }
 
-.controls { 
-    background-color: rgba(255,255,255,0.5);
-    margin: 5px 10px;
-    padding: 8px;
-}
-.controls-ctn{
-    display: flex;
-    justify-content: center;
-    padding:5px;
-}
-.controls-ctn button{
-    border: none;
-    padding: 10px;
-    margin: 0px 2px; 
-    border-radius: 20px;
-    background-color: #8a2be2;
+img {
+  padding: 2px;
 }
 
-.game-instructions h3{ 
-    font-weight: bold;
-    margin-bottom: 20px; 
+img:hover {
+  transform: scale(1.1);
+}
+.info-ctn {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 5px 10px 20px 10px;
+  padding: 8px;
 }
 
-.game-instructions ul{ 
-    margin-bottom: 40px;
+.title h1 {
+  font-family: "Lobster", cursive;
+  font-size: 48px;
+  color: #b010a4;
+}
+
+.personal-links {
+  display: flex;
+  justify-content: center;
+}
+
+.controls {
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 5px 10px;
+  padding: 8px;
+}
+.controls-ctn {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.controls-ctn button {
+  border: none;
+  padding: 10px;
+  margin: 0px 2px;
+  border-radius: 20px;
+  background-color: #8a2be2;
+}
+
+.game-instructions h3 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.game-instructions ul {
+  margin-bottom: 40px;
 }
