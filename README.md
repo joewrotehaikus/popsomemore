@@ -1,5 +1,7 @@
 ![image](https://user-images.githubusercontent.com/76965024/129233553-2c56e813-61dd-4970-80fc-7c1eadf60575.png)
 
+[Pop Some More Live Link ](https://asaha718.github.io/popsomemore/) 
+
 Pop Some More is a game reminiscent of my childhood. A player would be allowed to move left or right and shoot projectiles to pop a bubble to collect points. The concept is simple but forced me to practice my object orientated programing. My methods had to be organized and my classes had to be structured. 
 ```javascript
 // game.js
@@ -68,7 +70,7 @@ drawPlayer(ctx){
  Overall learned a lot about manipulating DOM elements and a new JavaScript Charting Library to create an interactive and fun game. 
  Contact me if you have any questions!
 
-# Proposal for POP Some MORE
+# Prospectus for POP Some MORE
 
 ## Background:
 Pop some more will be an arcade style web game that allows players to shoot down a bubble that doubles as you pop it. Players will generate points for shooting down bubbles and can level through the game. Reminds me of a game I used to play as a kid but can not find on the web anymore. 
@@ -78,6 +80,7 @@ Pop some more will be an arcade style web game that allows players to shoot down
 * Will be able to shoot projectile at bubble
 * Bubble will reduce in size and multiply when struck 
 * Modal to explain rules of game 
+* Use OOP for game structure
 
 ## Wireframe: 
 ![PSM Wireframe](https://user-images.githubusercontent.com/76965024/120233918-d8fcf600-c224-11eb-98eb-8d0d6b4b8488.jpg)
